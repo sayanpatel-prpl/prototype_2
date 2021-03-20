@@ -6,7 +6,7 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.new(video_params)
-    #@video.user = current_user
+    @video.user_id = current_user.id
     #binding.pry
     respond_to do |format|
       if @video.save
