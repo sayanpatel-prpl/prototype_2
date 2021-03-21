@@ -1,15 +1,253 @@
+@import "bootstrap";
+
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
+ * Globals
  */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: .05rem solid #fff;
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-color: #333;
+}
+
+body {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  color: #fff;
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+
+.cover-container {
+  max-width: 42em;
+}
+
+
+/*
+ * Header
+ */
+.masthead {
+  margin-bottom: 2rem;
+}
+
+.masthead-brand {
+  margin-bottom: 0;
+}
+
+.nav-masthead .nav-link {
+  padding: .25rem 0;
+  font-weight: 700;
+  color: rgba(255, 255, 255, .5);
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgba(255, 255, 255, .25);
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-masthead .active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+.clearfix {
+  display: inline-table;
+  width: 80%;
+  position: relative;
+}
+
+@media (min-width: 48em) {
+  .masthead-brand {
+    float: left;
+    font-size: x-large;
+  }
+  .nav-masthead {
+    float: right;
+    position: relative;
+    top: 30px;
+    right: 0px;
+  }
+}
+
+
+/*
+ * Cover
+ */
+.cover {
+  padding: 0 1.5rem;
+}
+.cover .btn-lg {
+  padding: .75rem 3.25rem;
+  font-weight: 700;
+}
+
+.centering {
+  text-align: center;
+  padding: 200px 100px;
+}
+
+.custom-buttons {
+  padding: 10px 0px;
+  text-decoration: auto;
+}
+
+.buttons-separation {
+  padding: 30px 0px;
+}
+/*
+ * Footer
+ */
+.mastfoot {
+  color: rgba(255, 255, 255, .5);
+}
+
+
+/*
+ * Card
+ */
+
+.card {
+  position: absolute;
+  display: flex;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  color: black;
+  flex-direction: column;
+  width: 30rem;
+  margin: 30px 0px;
+  padding-bottom: 15px;
+}
+
+.card-header {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color:
+  rgba(0,0,0,.03);
+  border-bottom: 1px solid
+  rgba(0,0,0,.125);
+  font-weight: 700;
+  font-size: xx-large;
+}
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  display: block;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+}
+
+.col-md-5 {
+  width: 50%;
+  float: left;
+}
+
+.col-md-10 {
+  width: 100%;
+  float: left;
+}
+
+.row {
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #0275d8;
+  border-color: #0275d8;
+}
+
+.btn-warning {
+  color: #fff;
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
+
+.btn-back {
+  color: black;
+  background-color: #ffff00;
+  border-color: #ffff00;
+}
+
+.btn-block {
+  display: block;
+  padding: 10px 10px;
+  border-radius: .25rem;
+  border: 0px solid;
+}
+
+.register-text {
+  font-size: inherit;
+  color: black;
+  text-decoration: auto;
+  padding-bottom: 5px;
+}
+
+.navi-links {
+  text-decoration: auto;
+  margin: 0px 15px;
+}
+
+.parent_vertical_align {
+  display: table;
+  width: 100%;
+}
+
+.main_form {
+  top: 33%;
+}
+
+.middling_main {
+  margin: 0px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
