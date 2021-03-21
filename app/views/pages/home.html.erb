@@ -1,0 +1,50 @@
+<% if user_signed_in? %>
+  <div class="masthead clearfix">
+    <div class="inner">
+      <h3 class="masthead-brand">TrueAware.AI</h3>
+      <div class="nav nav-masthead">
+        <%= link_to "Edit Profile", edit_user_registration_path, class: 'navi-links' %> |
+        <%= link_to "Logout", destroy_user_session_path , method: :delete, class: 'navi-links' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card main_form">
+    <div class="card-header">
+      Send your Videos here
+    </div>
+    <div class="card-body">
+      <%= form_for(@video) do |f| %>
+        <% if @video.errors.any? %>
+          <% @video.errors.full_messages.each do |error| %>
+            <%= alert_generator error %>
+          <% end %>
+        <% end %>
+        
+        <div class="row">
+          <div class="col-md-10">
+            <div class="form-group">
+              <%= f.label :upload_file %><br />
+              <%= f.file_field :file, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.submit "Submit", class: 'btn btn-primary btn-block' %>
+            </div>
+
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+<% else %>
+  <main role="main" class="inner cover centering">
+    <h1 class="cover-heading">Welcome to TrueAware.AI</h1>
+    <div class="lead">At TrueAware™ we strive to create a solution that allows the general populace to be aware of the content that they are consuming. TrueAware™ allows you to ensure the authenticity of the digital content.  We provide an instant Deep learning-based solution which allows you to detect "Deep Fakes". TrueAware™ can help prevent irreparable damage to Brands, Individuals, Public figures and more. Our proprietary algorithms and flows allow us to achieve unprecedented levels of accuracy at detecting the "fake" synthetic media where human eye fails.
+    <div class="lead buttons-separation">
+      <a href="/users/sign_up" class="btn btn-lg btn-secondary custom-buttons">Sign Up</a>
+      <a href="/users/sign_in" class="btn btn-lg btn-secondary custom-buttons">Log In</a>
+    </div>
+  </main>
+<% end %>
