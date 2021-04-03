@@ -5,8 +5,15 @@ class VideosController < ApplicationController
   end
 
   def create
+    # obj = S3_BUCKET.objects[params[:video].original_filename]
+    # obj.write(
+    #   file: params[:file],
+    #   acl: :public_read
+    # )
+
     @video = Video.new(video_params)
     @video.user_id = current_user.id
+
     #binding.pry
     respond_to do |format|
       if @video.save
