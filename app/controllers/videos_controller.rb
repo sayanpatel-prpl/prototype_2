@@ -5,19 +5,15 @@ class VideosController < ApplicationController
   end
 
   def create
-    # obj = S3_BUCKET.objects[params[:video].original_filename]
-    # obj.write(
-    #   file: params[:file],
-    #   acl: :public_read
-    # )
+    obj = S3_BUCKET.bucket('bucket_name').object('key')
+    location = "public/uploads/video/file/19/#{video_params[:file].original_filename}"
 
     @video = Video.new(video_params)
     @video.user_id = current_user.id
 
-    #binding.pry
     respond_to do |format|
       if @video.save
-        
+        obj.upload_file(location, acl: 'public-read')
         format.html { redirect_to root_path, notice: "Video was successfully created." }
         format.json { render :show, status: :created, location: @video }
       else
